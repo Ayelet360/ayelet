@@ -28,7 +28,7 @@ spec:
             - containerPort:  {{ .Values.containers.containerPort }}
               protocol: TCP
           imagePullPolicy: IfNotPresent
-           volumeMounts:
+          volumeMounts:
           - name: index-html
             mountPath: /tmp/html # this will mount the html.index file to it application location
 # Update with the image you build in part 1
