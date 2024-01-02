@@ -1,8 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  annotations:
-    checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+  
 # set your lab user name
   name: {{ .Chart.Name }}
 spec:
@@ -13,6 +12,8 @@ spec:
       app: {{ .Chart.Name }}
   template:
     metadata:
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
       labels:
 # set your lab user name
         app: {{ .Chart.Name }}
