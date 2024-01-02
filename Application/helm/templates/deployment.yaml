@@ -28,11 +28,12 @@ spec:
             - containerPort:  {{ .Values.containers.containerPort }}
               protocol: TCP
           imagePullPolicy: IfNotPresent
-# Update with the image you build in part 1
-          image: {{ .Values.containers.image }}:{{ .Values.containers.tag }}
-            volumeMounts:
+           volumeMounts:
           - name: index-html
             mountPath: /tmp/html # this will mount the html.index file to it application location
+# Update with the image you build in part 1
+          image: {{ .Values.containers.image }}:{{ .Values.containers.tag }}
+           
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
   strategy:
